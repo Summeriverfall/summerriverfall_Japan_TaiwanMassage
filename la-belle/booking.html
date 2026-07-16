@@ -193,11 +193,17 @@
       .then(function (c) { var num = c && c[c.use]; if (num && /^\d{8,15}$/.test(num)) WHATSAPP_NUMBER = num; })
       .catch(function () {});
     var currentLang = 'en';
-    var serviceInfo = {"Combo 60min (Body30+Foot30)":5500,"Combo 100min (Body30+Foot30+Aroma30+Eye10)":8000,"Body 30min":3000,"Body 60min":5000,"Body 90min":7500,"Foot 30min":3000,"Foot 45min":4000,"Foot 60min":5000,"Oil Lymph 30min":3300,"Oil Lymph 60min":5800,"Oil Lymph 90min":8800,"Oil Lymph 120min":11800,"Facial Lymph 30min":3300,"Pore Care + Small Face 30min":4000,"Facial Lymph 60min":6000,"Dry Head Spa 10min":1000,"Dry Head Spa 30min":3000,"Dry Head Spa 60min":5000,"Slimming Spot 10min":2000,"Slimming Full Body 60min (RF+EMS)":11500,"Hyper Knife Slimming 120min":16000};
+    var serviceInfo = {"Combo Body+Foot 60min":5500,"Combo Body+Foot 90min":8000,"Combo Body+Oil 60min":5500,"Combo Foot+Oil 60min":6000,"Combo Foot+Oil 90min":8800,"Combo Body+Foot+Oil+Eye 100min":9000,"Body 30min":3000,"Body 60min":5000,"Body 90min":7500,"Foot 30min":3000,"Foot 45min":4000,"Foot 60min":5000,"Oil Lymph 30min":3300,"Oil Lymph 60min":5800,"Oil Lymph 90min":8800,"Oil Lymph 120min":11800,"Oil Lymph Split 90min A":8800,"Oil Lymph Split 90min B":8800,"Facial Lymph 30min":3300,"Pore Care + Small Face 30min":4000,"Facial Lymph 60min":6000,"Dry Head Spa 10min":1000,"Dry Head Spa 30min":3000,"Dry Head Spa 60min":5000,"Hyper Knife 1 Area 10min":2000,"Hyper Knife 30min":5000,"Hyper Knife 60min":8000,"Hyper Knife 90min":12000,"Hyper Knife 120min":15000,"Hyper Knife Face 60min":8000,"Cavi RF EMS 1 Area 10min":2000,"Cavi RF EMS 30min":5000,"Cavi RF EMS 60min":8000,"Cavi RF EMS 90min":12000,"Cavi RF EMS 120min":15000,"Radio EMS Hyperpulse Face 60min":8000,"New Cavi Hyper Knife 120min":16000};
     var serviceOptions = [
-      {"group":"set","label":{"jp":"人気の組合コース","en":"Popular Set Courses","cn":"人气组合套餐"},"items":[
-        {"value":"Combo 60min (Body30+Foot30)","jp":"整体30分＋足つぼ30分（頭・合計60分）","en":"Body 30 + Foot 30 (60 min total)","cn":"整体30分＋脚底30分（含头部・共60分）","price":5500},
-        {"value":"Combo 100min (Body30+Foot30+Aroma30+Eye10)","jp":"整体30分＋足つぼ30分＋アロマ30分＋目頭10分（合計100分）","en":"Body 30 + Foot 30 + Aroma 30 + Eye 10 (100 min total)","cn":"整体30分＋脚底30分＋精油30分＋眼部10分（共100分）","price":8000}
+      {"group":"set","label":{"jp":"整体と足裏の組合コース","en":"Body & Foot Combo","cn":"整体和脚底的组合套餐"},"items":[
+        {"value":"Combo Body+Foot 60min","jp":"整体30分＋足つぼ30分（頭・60分）","en":"Body 30 + Foot 30 (with head, 60 min)","cn":"整体30分＋脚底30分（含头部・60分）","price":5500},
+        {"value":"Combo Body+Foot 90min","jp":"整体60分＋足つぼ30分（頭・90分）","en":"Body 60 + Foot 30 (with head, 90 min)","cn":"整体60分＋脚底30分（含头部・90分）","price":8000}
+      ]},
+      {"group":"set2","label":{"jp":"リンパオイルと整体と足裏の組合コース","en":"Lymph Oil, Body & Foot Combo","cn":"精油、整体和脚底的组合套餐"},"items":[
+        {"value":"Combo Body+Oil 60min","jp":"整体30分＋アロマオイル30分（60分）","en":"Body 30 + Aroma Oil 30 (60 min)","cn":"整体30分＋精油30分（60分）","price":5500},
+        {"value":"Combo Foot+Oil 60min","jp":"足裏30分＋アロマオイル30分（60分）","en":"Foot 30 + Aroma Oil 30 (60 min)","cn":"脚底30分＋精油30分（60分）","price":6000},
+        {"value":"Combo Foot+Oil 90min","jp":"足裏30分＋アロマオイル60分（90分）","en":"Foot 30 + Aroma Oil 60 (90 min)","cn":"脚底30分＋精油60分（90分）","price":8800},
+        {"value":"Combo Body+Foot+Oil+Eye 100min","jp":"整体30分＋足裏30分＋アロマオイル30分＋目頭10分（100分）","en":"Body 30 + Foot 30 + Aroma Oil 30 + Eye 10 (100 min)","cn":"整体30分＋脚底30分＋精油30分＋眼部10分（100分）","price":9000}
       ]},
       {"group":"body","label":{"jp":"台湾式整体・足つぼ","en":"Taiwanese Body & Foot","cn":"台湾式整体・脚底"},"items":[
         {"value":"Body 30min","jp":"台湾式整体 30分（上半身 or 下半身）","en":"Body Care 30 min (upper/lower)","cn":"台湾式整体 30分（上/下半身）","price":3000},
@@ -211,7 +217,9 @@
         {"value":"Oil Lymph 30min","jp":"リンパオイル 30分（上半身 or 下半身）","en":"Lymph Oil 30 min (upper/lower)","cn":"淋巴精油 30分（上/下半身）","price":3300},
         {"value":"Oil Lymph 60min","jp":"リンパオイル 60分（背面全身・頭）","en":"Lymph Oil 60 min (full back & head)","cn":"淋巴精油 60分（背部全身・头部）","price":5800},
         {"value":"Oil Lymph 90min","jp":"リンパオイル 90分（背面全身・正面脚・頭目）","en":"Lymph Oil 90 min (back, front legs & head)","cn":"淋巴精油 90分（背部全身・正面腿・头眼）","price":8800},
-        {"value":"Oil Lymph 120min","jp":"リンパオイル 120分（全身・お腹・デコルテ・頭目）","en":"Lymph Oil 120 min (full body, abdomen, décolletage)","cn":"淋巴精油 120分（全身・腹部・锁骨・头眼）","price":11800}
+        {"value":"Oil Lymph 120min","jp":"リンパオイル 120分（全身・お腹・デコルテ・頭目）","en":"Lymph Oil 120 min (full body, abdomen, décolletage)","cn":"淋巴精油 120分（全身・腹部・锁骨・头眼）","price":11800},
+        {"value":"Oil Lymph Split 90min A","jp":"リンパオイル分解 90分（背面全身・デコルテ・目頭）","en":"Lymph Oil Split 90 min (full back, décolletage, brow)","cn":"淋巴精油分解 90分（背部全身・锁骨・头眼）","price":8800},
+        {"value":"Oil Lymph Split 90min B","jp":"リンパオイル分解 90分（背面全身・お腹・目頭）","en":"Lymph Oil Split 90 min (full back, abdomen, brow)","cn":"淋巴精油分解 90分（背部全身・腹部・头眼）","price":8800}
       ]},
       {"group":"beauty","label":{"jp":"美顔・小顔＆ドライヘッドスパ","en":"Facial & Dry Head Spa","cn":"美颜小脸＆干式头部SPA"},"items":[
         {"value":"Facial Lymph 30min","jp":"オールハンド小顔リンパ 30分","en":"All-hands Small-face Lymph 30 min","cn":"全手技小脸淋巴 30分","price":3300},
@@ -221,10 +229,24 @@
         {"value":"Dry Head Spa 30min","jp":"ドライヘッドスパ 30分","en":"Dry Head Spa 30 min","cn":"干式头部SPA 30分","price":3000},
         {"value":"Dry Head Spa 60min","jp":"ドライヘッドスパ 60分","en":"Dry Head Spa 60 min","cn":"干式头部SPA 60分","price":5000}
       ]},
-      {"group":"slim","label":{"jp":"痩身コース","en":"Slimming","cn":"瘦身项目"},"items":[
-        {"value":"Slimming Spot 10min","jp":"部分痩身（RF・EMS／1部位）10分","en":"Spot Slimming (RF·EMS / 1 area) 10 min","cn":"局部瘦身（RF・EMS／单一部位）10分","price":2000},
-        {"value":"Slimming Full Body 60min (RF+EMS)","jp":"全身痩身（RF・EMS）60分","en":"Full-body Slimming (RF·EMS) 60 min","cn":"全身瘦身（RF・EMS）60分","price":11500},
-        {"value":"Hyper Knife Slimming 120min","jp":"ハイパーナイフ痩身 120分","en":"Hyper Knife Slimming 120 min","cn":"Hyper Knife 瘦身 120分","price":16000}
+      {"group":"hyperknife","label":{"jp":"ハイパーナイフ","en":"Hyper Knife","cn":"Hyper Knife"},"items":[
+        {"value":"Hyper Knife 1 Area 10min","jp":"ハイパーナイフ（1部位）10分","en":"Hyper Knife (1 area) 10 min","cn":"Hyper Knife（单一部位）10分","price":2000},
+        {"value":"Hyper Knife 30min","jp":"ハイパーナイフ 30分","en":"Hyper Knife 30 min","cn":"Hyper Knife 30分","price":5000},
+        {"value":"Hyper Knife 60min","jp":"ハイパーナイフ 60分（上半身 or 下半身＋アロマリンパオイル30分）","en":"Hyper Knife 60 min (upper/lower + 30 min aroma oil)","cn":"Hyper Knife 60分（上/下半身＋精油淋巴30分）","price":8000},
+        {"value":"Hyper Knife 90min","jp":"ハイパーナイフ 90分（上半身 or 下半身＋アロマリンパオイル45分）","en":"Hyper Knife 90 min (upper/lower + 45 min aroma oil)","cn":"Hyper Knife 90分（上/下半身＋精油淋巴45分）","price":12000},
+        {"value":"Hyper Knife 120min","jp":"ハイパーナイフ 120分（全身60分＋全身アロマリンパオイル60分）","en":"Hyper Knife 120 min (full body 60 + full-body aroma oil 60)","cn":"Hyper Knife 120分（全身60分＋全身精油淋巴60分）","price":15000},
+        {"value":"Hyper Knife Face 60min","jp":"ハイパーナイフ小顔美肌 60分（ハイパーナイフ30分＋小顔手マッサージ30分／顔・首・デコルテ）","en":"Hyper Knife Facial 60 min (30 min + 30 min small-face massage / face, neck, décolletage)","cn":"Hyper Knife小脸美肌 60分（30分＋小脸手部按摩30分／脸・颈・锁骨）","price":8000}
+      ]},
+      {"group":"cavirfems","label":{"jp":"RF・キャビテーション・EMS","en":"RF · Cavitation · EMS","cn":"RF・卡飞・EMS"},"items":[
+        {"value":"Cavi RF EMS 1 Area 10min","jp":"キャビ×RF×EMS（1部位）10分","en":"Cavi × RF × EMS (1 area) 10 min","cn":"卡飞×RF×EMS（单一部位）10分","price":2000},
+        {"value":"Cavi RF EMS 30min","jp":"キャビ×RF×EMS 30分","en":"Cavi × RF × EMS 30 min","cn":"卡飞×RF×EMS 30分","price":5000},
+        {"value":"Cavi RF EMS 60min","jp":"キャビ×RF×EMS×アロママッサージ 60分（上半身 or 下半身＋アロマリンパオイル30分）","en":"Cavi × RF × EMS + Aroma Massage 60 min (upper/lower + 30 min aroma oil)","cn":"卡飞×RF×EMS×精油按摩 60分（上/下半身＋精油淋巴30分）","price":8000},
+        {"value":"Cavi RF EMS 90min","jp":"キャビ×RF×EMS×アロママッサージ 90分（上半身 or 下半身＋アロマリンパオイル45分）","en":"Cavi × RF × EMS + Aroma Massage 90 min (upper/lower + 45 min aroma oil)","cn":"卡飞×RF×EMS×精油按摩 90分（上/下半身＋精油淋巴45分）","price":12000},
+        {"value":"Cavi RF EMS 120min","jp":"キャビ×RF×EMS全身 120分（全身60分＋全身アロマリンパオイル60分）","en":"Cavi × RF × EMS Full Body 120 min (full body 60 + full-body aroma oil 60)","cn":"卡飞×RF×EMS全身 120分（全身60分＋全身精油淋巴60分）","price":15000},
+        {"value":"Radio EMS Hyperpulse Face 60min","jp":"ラジオ波＆EMS＆ハイパーパルス小顔美肌 60分（30分＋小顔手マッサージ30分／顔・首・デコルテ）","en":"Radio Wave & EMS & Hyperpulse Facial 60 min (30 min + 30 min small-face massage / face, neck, décolletage)","cn":"射频＆EMS＆超脉冲小脸美肌 60分（30分＋小脸手部按摩30分／脸・颈・锁骨）","price":8000}
+      ]},
+      {"group":"slimcombo","label":{"jp":"ハイパーナイフとRF・キャビテーション・EMSの組合コース","en":"Hyper Knife + RF · Cavitation · EMS Combo","cn":"Hyper Knife 与 RF・卡飞・EMS 的组合套餐"},"items":[
+        {"value":"New Cavi Hyper Knife 120min","jp":"新型キャビ＆ハイパーナイフ痩身 120分","en":"New Cavi & Hyper Knife Slimming 120 min","cn":"新型卡飞＆Hyper Knife瘦身 120分","price":16000}
       ]}
     ];
     var ADDONS = [
