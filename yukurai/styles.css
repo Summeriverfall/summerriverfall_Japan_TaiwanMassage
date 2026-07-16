@@ -2027,3 +2027,6 @@ html[lang="zh-CN"] .hero-nav-pill {
 
 /* secondary headings: balance wrapping to avoid CJK orphans on mobile (checklist) */
 .intro-text h2, .section-header h2, .visit-info h2 { text-wrap: balance; }
+
+/* Force a specific break point instead of splitting a CJK word mid-character */
+.no-orphan{ word-break: keep-all; }
