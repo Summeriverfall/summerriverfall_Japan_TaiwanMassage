@@ -1987,7 +1987,7 @@ html[lang="zh-CN"] .hero-nav-pill {
 
 /* mobile: neutralize desktop <br> in headings so CJK flows full width (avoids single-char / punctuation orphans) */
 @media (max-width: 600px) {
-  .hero-content h1 br, .intro-text h2 br, .section-header h2 br, .visit-info h2 br { display: none; }
+  .intro-text h2 br, .section-header h2 br, .visit-info h2 br { display: none; }
 }
 
 /* ========================================
