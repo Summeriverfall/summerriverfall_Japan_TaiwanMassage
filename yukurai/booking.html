@@ -243,7 +243,9 @@
     var LATE = null;
     var SHOP = {"jp":"癒来 表参道店","en":"Yukurai Omotesando","cn":"Yukurai 癒来 表参道店"};
     var HOURS = {"jp":"11:00〜23:00","en":"11:00–23:00","cn":"11:00〜23:00"};
-    var PAYNOTE = {"jp":"指名料500円・シーツ代300円が別途かかります","en":"Nomination ¥500 · sheet fee ¥300 apply separately","cn":"指名费500日元・床单费300日元 另计"};
+    var PAYNOTE = {"jp":"ご指名は別途500円","en":"Nomination +¥500","cn":"指名另收500日元"};
+    var SHEET_FEE = 300;
+    var SHEET_LABEL = {"jp":"シーツ代","en":"Sheet fee","cn":"床单费"};
 
     var i18n = {
       en:{ htmlLang:'en', title:'Book Appointment — '+SHOP.en, backLink:'Back', brandBadge:'BOOK YOUR APPOINTMENT', bookingTitle:SHOP.en+' Reservation', bookingSubtitle:'Fill in the form below to book your appointment', successMessage:'Your booking information has been prepared. You will be redirected to WhatsApp shortly...', labelService:'Course *', labelDate:'Date *', labelTime:'Time *', labelGuests:'Number of Guests *', labelName:'Name *', errorService:'Please select a course', errorDate:'Please select a date', errorTime:'Please select a time', errorGuests:'Please select number of guests', errorName:'Please enter your name', namePlaceholder:'Enter your name', samePackageText:'All guests choose the same course', additionalServicesTitle:"Additional Guests' Courses (if different)", submitButton:'Submit & Open WhatsApp', redirecting:'Redirecting...', previewTitle:'WhatsApp Message Preview', previewHint:'Complete all required fields above to preview your message before sending.', selectCourse:'Select a course', timePlaceholder:'Select a time', hourLabel:'Hour', minuteLabel:'Min', selectGuests:'Select number of guests', guestLabel:'Guest', waIntro:'Hello, I would like to make a reservation at '+SHOP.en+'.\n\n', waName:'Name', waDate:'Date', waTime:'Time', waGuests:'Number of Guests', waMainGuest:'Main Guest', waSameCourse:'All guests choose the same course', waGuest:'Guest', waTotal:'Total', waLate:'late-night rate', dateLocale:'en-US' },
@@ -386,6 +388,7 @@
       var total=mainPrice;
       if(same){ total=mainPrice*gc; } else { for(var j=1;j<gc;j++){ var g2=fd.get('guest'+j+'Service'); if(g2&&g2.trim()) total+=servicePrice(g2, time); } }
       total += addonTotal;
+      if(SHEET_FEE>0){ var sheetTotal=SHEET_FEE*(gc||1); m+=SHEET_LABEL[currentLang]+': ¥'+SHEET_FEE.toLocaleString()+' ×'+(gc||1)+' (¥'+sheetTotal.toLocaleString()+')\n'; total+=sheetTotal; }
       if(total>0){ m+='\n'+t('waTotal')+': ¥'+total.toLocaleString(); }
       return m;
     }

@@ -2014,13 +2014,17 @@ html[lang="zh-CN"] .hero-nav-pill {
 }
 .opt-row .opt-name,.opt-row .opt-sub{text-wrap:balance}
 
-/* Long option titles take the full row; price/time drop to a line below.
-   On very narrow screens fall back to balanced wrapping to avoid overflow. */
-.opt-row .opt-duration{min-width:max-content;}
-@media (max-width:380px){ .opt-row .opt-duration{min-width:0;} }
+/* Long option titles wrap within the row so they never reach the frame edge;
+   the price/time column stays to the right (and wraps below when needed). */
+.opt-row .opt-duration{min-width:0;}
+.opt-row .opt-name{overflow-wrap:anywhere;word-break:break-word;}
 
 /* Hero title: balance the two lines so no ≤3-char orphan remains on mobile */
 .hero-content h1{ text-wrap:balance; }
 
 /* secondary headings: balance wrapping to avoid CJK orphans on mobile (checklist) */
 .intro-text h2, .section-header h2, .visit-info h2 { text-wrap: balance; }
+
+/* 方案2: option rows with a sub-note — radio & price align to the title line; note drops below */
+.opt-row:has(.opt-sub){ align-items:flex-start; }
+.opt-row:has(.opt-sub) input[type="radio"]{ margin-top:0.2rem; }
