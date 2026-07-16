@@ -1019,8 +1019,8 @@ html[lang="zh-CN"] .hero-nav-pill {
 .visit-details {
   display: flex;
   flex-direction: column;
-  gap: var(--space-lg);
-  margin-bottom: var(--space-lg);
+  gap: calc(var(--space-lg) * 2 / 3);
+  margin-bottom: calc(var(--space-lg) * 2 / 3);
 }
 
 .visit-item h4 {
@@ -2025,6 +2025,6 @@ html[lang="zh-CN"] .hero-nav-pill {
 /* secondary headings: balance wrapping to avoid CJK orphans on mobile (checklist) */
 .intro-text h2, .section-header h2, .visit-info h2 { text-wrap: balance; }
 
-/* 方案2: option rows with a sub-note — radio & price align to the title line; note drops below */
-.opt-row:has(.opt-sub){ align-items:flex-start; }
-.opt-row:has(.opt-sub) input[type="radio"]{ margin-top:0.2rem; }
+/* 方案2: combo rows — short title + price on line 1; full-width sub-note wraps to line 2 (spans under radio & price) */
+.opt-row:has(.opt-sub){ align-items:center; }
+.opt-row:has(.opt-sub) .opt-sub{ flex:0 0 100%; width:100%; margin-top:.3rem; padding-left:calc(16px + 0.6rem); font-size:.74rem; line-height:1.5; letter-spacing:0; text-wrap:normal; }
